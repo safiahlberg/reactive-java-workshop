@@ -12,13 +12,13 @@ public class Exercise5 {
         // Use ReactiveSources.intNumbersFlux() and ReactiveSources.userMono()
 
         // Subscribe to a flux using the error and completion hooks
-//        ReactiveSources.intNumbersFlux().subscribe(
-//                intNumber -> System.out.printf("Intnumber: %d%n", intNumber),
-//                error -> System.out.printf("Error: %s", error.getMessage()),
-//                () -> System.out.println("Processing complete."));
+        ReactiveSources.intNumbersFlux().subscribe(
+                intNumber -> System.out.printf("Intnumber: %d%n", intNumber),
+                error -> System.out.printf("Error: %s", error.getMessage()),
+                () -> System.out.println("Processing complete."));
 
         // Subscribe to a flux using an implementation of BaseSubscriber
-        ReactiveSources.intNumbersFlux().subscribe(new MySubscriber<>());
+        ReactiveSources.userFlux().subscribe(new MySubscriber<>());
 
         System.out.println("Press a key to end");
         System.in.read();
