@@ -9,13 +9,18 @@ public class Exercise4 {
         // Use ReactiveSources.intNumberMono()
 
         // Print the value from intNumberMono when it emits
-        // TODO: Write code here
+        System.out.println("Fetching from Mono...");
+        // System.out.printf("Value from intNumberMono(): %s%n", ReactiveSources.intNumberMono().block());
+        ReactiveSources.intNumberMono()
+                .subscribe(intNumber -> System.out.printf("Value from intNumberMono(): %s%n", intNumber));
 
         // Get the value from the Mono into an integer variable
-        // TODO: Write code here
+        int intNumber = ReactiveSources.intNumberMono().blockOptional().orElse(-1);
+        System.out.printf("intNumber: %d%n", intNumber);
 
-        System.out.println("Press a key to end");
-        System.in.read();
+
+//        System.out.println("Press a key to end");
+//        System.in.read();
     }
 
 }
